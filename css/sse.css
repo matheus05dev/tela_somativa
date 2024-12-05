@@ -1,0 +1,162 @@
+* Reset básico */
+* {
+    margin: 0px;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/* Estilo geral do body */
+body {
+    background-color: white;
+    font-family: Arial, sans-serif;
+    color: black
+}
+
+
+/*------------------------------------------- MENU PADRÃO -------------------------------------------*/
+    /* Cabeçalho */
+    header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        background-color: #ec1d1d;
+        padding: 10px 20px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        color: white;
+        position: fixed; /* Fixar o cabeçalho no topo da página */
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 3; /* Sobrepõe o menu lateral */
+    }
+
+
+    /* Logo */
+    .logo img {
+        height: 50px;
+        display: block;
+        padding-left: 70px;
+    }
+
+
+    /* Ícone do menu lateral */
+    #icone {
+        cursor: pointer;
+        padding: 15px;
+        position: absolute;
+        top: 5px;
+        left: 10px;
+        z-index: 4; /* Certificar-se de que o ícone também está acima do menu lateral */
+    }
+
+
+    #icone img {
+        height: 30px;
+        width: auto;
+    }
+
+
+    /* Checkbox oculto para o menu */
+    #check {
+        display: none;
+    }
+
+
+    /* Barra lateral */
+    .barra {
+        background-color: #ec1d1d;
+        height: 100vh; /* Altura total da tela */
+        width: 250px; /* Largura da barra lateral */
+        position: fixed;
+        top: 0;
+        left: -250px; /* Escondida fora da tela inicialmente */
+        transition: all 0.3s ease;
+        z-index: 2; /* Mantém abaixo do header */
+        box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
+    }
+
+
+    /* Ao ativar o checkbox, mostrar a barra */
+    #check:checked ~ .barra {
+        left: 0;
+    }
+
+
+    /* Navegação da barra */
+    nav {
+        margin-top: 60px; /* Espaço abaixo do cabeçalho */
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+
+    nav a {
+        text-decoration: none;
+    }
+
+
+    .link {
+        background-color: #ec1d1d;
+        padding: 15px 20px;
+        font-size: 16px;
+        font-weight: bold;
+        color: #f4f4f9;
+        border-bottom: 1px solid #bc0101;
+        transition: background-color 0.3s ease, color 0.3s ease;
+        text-align: left;
+    }
+
+
+    .link:hover {
+        background-color: #bc0101;
+        color: white;
+    }
+
+
+    /* Transição suave dos itens do menu */
+    .link {
+        opacity: 0;
+        transform: translateY(20px);
+        transition: all 0.3s ease;
+    }
+
+
+    #check:checked ~ .barra .link {
+        opacity: 1;
+        transform: translateY(0);
+        transition-delay: 0.07s;
+    }
+
+
+    /* Links horizontais do cabeçalho (caso use no futuro) */
+    .menu-list {
+        list-style: none;
+        display: flex;
+        margin: 0;
+        padding: 0;
+    }
+
+
+    .menu-list li {
+        margin: 0 15px;
+    }
+
+
+    .menu-list a {
+        text-decoration: none;
+        color: white;
+        font-size: 16px;
+        font-weight: bold;
+        transition: color 0.3s ease, background-color 0.3s ease;
+        padding: 8px 12px;
+        border-radius: 5px;
+    }
+
+
+    .menu-list a:hover {
+        color: #ec1d1d;
+        background-color: white;
+    }
+/*----------------------------------------- FIM MENU PADRÃO -----------------------------------------*/
